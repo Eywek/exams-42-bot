@@ -1,0 +1,18 @@
+{
+  "debug": true,
+  "api": {
+    "client_id": "",
+    "client_secret": ""
+  },
+  "notifications": {
+    "SMS": {
+      "enabled": false,
+      "service": {
+        "freeAPI": {
+          "user": "",
+          "pass": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "exams-42-bot",
+  "version": "1.0.0",
+  "description": "A bot for register to 42's exams",
+  "main": "index.js",
+  "dependencies": {
+    "jsdom": "^9.8.3",
+    "moment": "^2.19.2",
+    "node-cron": "^1.1.2",
+    "oauth": "^0.9.15",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eywek <contact@eywek.fr>",
+  "license": "ISC"
+}
