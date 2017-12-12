@@ -15,7 +15,7 @@
       }
     },
     "discord": {
-      "hook": ""
+      "hook": false
     }
   }
 }
