@@ -5,6 +5,9 @@ var OAuth2 = require('oauth').OAuth2
 var moment = require('moment')
 var request = require('request')
 var cron = require('node-cron')
+var Webhook = require("webhook-discord")
+if (config.notifications.discord.hook)
+    var Hook = new Webhook(config.notifications.discord.hook)
 
 // Init
 var oauth2 = new OAuth2(
@@ -46,6 +49,8 @@ cron.schedule('*/5 * * * *', function () {
                         // message
                         var message = available + ' places disponibles pour l\'exam du ' + next + ' !'
 
+                        if (config.notifications.discord.hook)
+                            Hook.custom("Exams Bot", message, "Exams")
                         if (config.notifications.SMS.service.freeAPI.user && config.notifications.SMS.service.freeAPI.pass) { // send with Free Mobile API
                             // request
                             var endpoint = 'https://smsapi.free-mobile.fr/sendmsg'
