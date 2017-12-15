@@ -45,7 +45,7 @@ cron.schedule('*/5 * * * *', function () {
                     var available = result[i].max_people - result[i].nbr_subscribers;
 
                     debug('Exam found! (' + result[i].nbr_subscribers + '/' + result[i].max_people + ')')
-                    if (config.notifications.discord.hook)
+                    if (config.notifications.discord.hook && available > 0)
                     	Hook.custom("Exams Bot", message, "Exams")
                     if (config.notifications.SMS && config.notifications.SMS.enabled && available > 0) {
                         // message
