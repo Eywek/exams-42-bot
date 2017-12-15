@@ -45,12 +45,12 @@ cron.schedule('*/5 * * * *', function () {
                     var available = result[i].max_people - result[i].nbr_subscribers;
 
                     debug('Exam found! (' + result[i].nbr_subscribers + '/' + result[i].max_people + ')')
+                    if (config.notifications.discord.hook)
+                    	Hook.custom("Exams Bot", message, "Exams")
                     if (config.notifications.SMS && config.notifications.SMS.enabled && available > 0) {
                         // message
                         var message = available + ' places disponibles pour l\'exam du ' + next + ' !'
 
-                        if (config.notifications.discord.hook)
-                            Hook.custom("Exams Bot", message, "Exams")
                         if (config.notifications.SMS.service.freeAPI.user && config.notifications.SMS.service.freeAPI.pass) { // send with Free Mobile API
                             // request
                             var endpoint = 'https://smsapi.free-mobile.fr/sendmsg'
